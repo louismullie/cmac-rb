@@ -21,7 +21,8 @@ tag = digest.update(plaintext)
 
 ###Reference
 
-- RFC 4493 - The AES-CMAC algorithm (http://tools.ietf.org/rfc/rfc4493.txt)
+- [RFC 4493](http://tools.ietf.org/rfc/rfc4493.txt) - The AES-CMAC algorithm
+- [NIST SP 800-38B](http://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) - The CMAC Mode for Authentication 
 
 ###License
 
