@@ -1,0 +1,10 @@
+
+*.gem
+
+*.log
+
+*.bundle
+
+*.o
+
+ext/cmac/Makefile
