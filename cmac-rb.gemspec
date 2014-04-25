@@ -3,7 +3,7 @@ require 'cmac/version'
 
 Gem::Specification.new do |s|
   
-  s.name        = 'cmac'
+  s.name        = 'cmac-rb'
   s.version     = CMAC::VERSION
   s.authors     = ['Louis Mullie']
   s.email       = ['louis.mullie@gmail.com']

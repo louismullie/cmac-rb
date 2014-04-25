@@ -13,7 +13,7 @@ task :make => [:clean] do
     ruby 'extconf.rb'
     sh 'make'
   end
-  cp 'ext/cmac/wrapper.bundle', 'lib/cmac'
+  cp 'ext/cmac/wrapper.bundle', 'lib/cmac-rb'
 end
 
 CLEAN.include('ext/**/*{.o,.log,.so,.bundle}')
