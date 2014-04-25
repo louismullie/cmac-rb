@@ -3,14 +3,8 @@
 #include <openssl/crypto.h>
 #include <openssl/evp.h>
 #include <openssl/aes.h>
+
 #include "cmac.h"
-
-#define CMAC_MSB(x) (((x)[0] & 0x80)?1:0)
-
-static unsigned char zero_block[AES_BLOCK_SIZE] = {
-  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-};
 
 static void cmac_xor (unsigned char *out, const unsigned char *in) {
   
@@ -32,27 +26,27 @@ static void cmac_pad (unsigned char *buf, int len) {
   
 }
 
-static unsigned char cmac_left_shift(unsigned char *output, unsigned char *input, unsigned char *overflow) {
+static unsigned char cmac_left_shift(unsigned char *out, unsigned char *in, unsigned char *overflow) {
   
   int i;
 
   for (i = AES_BLOCK_SIZE - 1; i >= 0; i--) {
-    output[i] = (input[i] << 1) | (*overflow);
-    (*overflow) = CMAC_MSB(&input[i]);
+    out[i] = (in[i] << 1) | (*overflow);
+    (*overflow) = CMAC_MSB(&in[i]);
   }
   
   return;
   
 }
 
-static void cmac_generate_sub_key(unsigned char *output, unsigned char *input) {
+static void cmac_generate_sub_key(unsigned char *out, unsigned char *in) {
   
   int i; unsigned char overflow = 0;
 
-  cmac_left_shift(output, input, &overflow);
+  cmac_left_shift(out, in, &overflow);
   
   if (overflow) {
-    output[AES_BLOCK_SIZE-1] ^= 0x87;
+    out[AES_BLOCK_SIZE-1] ^= 0x87;
   }
   
   return;
