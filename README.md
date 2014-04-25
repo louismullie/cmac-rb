@@ -15,6 +15,10 @@ digest = CMAC::Digest.new(key)
 tag = digest.update(plaintext)
 ```
 
+###Reference
+
+- RFC 4493 - The AES-CMAC algorithm (http://tools.ietf.org/rfc/rfc4493.txt)
+
 ###License
 
 This program is released under the GNU Affero General Public License.
