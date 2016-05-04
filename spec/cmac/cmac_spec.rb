@@ -1,11 +1,11 @@
-require 'spec_helper'
-require 'cmac'
+require_relative '../spec_helper'
+require 'cmac-rb'
 
 describe CMAC do
 
   it 'should fail if key is empty' do
     
-    expect { CMAC::Digest.new('') }.to raise_error
+    expect { CMAC::Digest.new('') }.to raise_error ArgumentError
     
   end
 
@@ -20,13 +20,13 @@ describe CMAC do
     
     examples.each do |example|
       
-      key, plaintext, expected =
+      key, plaintext, cmac =
       example.map { |x| [x].pack('H*') }
       
       digest = CMAC::Digest.new(key)
       tag = digest.update(plaintext)
       
-      tag.should eql expected
+      expect(tag).to eq cmac
       
     end
     
