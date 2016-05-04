@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'cmac'
+require 'cmac-rb'
 
 describe CMAC do
 
