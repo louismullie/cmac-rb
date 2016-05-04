@@ -1,2 +1,2 @@
-require 'cmac-rb/wrapper'
+require 'cmac/wrapper'
 require 'cmac-rb/version'
