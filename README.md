@@ -6,6 +6,8 @@ AES-CMAC provides stronger assurance of data integrity than a checksum or an err
  
 AES-CMAC achieves a security goal similar to that of HMAC. Since AES-CMAC is based on a symmetric key block cipher, AES, and HMAC is based on a hash function, such as SHA-1, AES-CMAC is appropriate for information systems in which AES is more readily available than a hash function.
 
+**Warning:** this package should not be considered cryptographically secure.
+
 ### Install
 
     gem install cmac-rb
